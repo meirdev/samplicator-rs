@@ -140,6 +140,7 @@ pub fn run(cli: Cli) -> Result<()> {
 
     let raw_sock = Socket::new(domain, Type::RAW, Some(Protocol::UDP))?;
 
+    raw_sock.set_recv_buffer_size(0)?; // we are not interested in reading from this socket.
     raw_sock.set_send_buffer_size(cli.pdulen)?;
 
     debug!("Config: {:#?}", cli);
