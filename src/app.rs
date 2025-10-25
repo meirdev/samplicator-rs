@@ -124,7 +124,7 @@ pub fn run(cli: Cli) -> Result<()> {
         daemon(false, false)?;
     }
 
-    let socket_addr: SocketAddr = format!("{}:{}", cli.address, cli.port).parse()?;
+    let socket_addr = SocketAddr::new(cli.address, cli.port);
 
     info!("Listening on {}", socket_addr);
 

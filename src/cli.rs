@@ -42,7 +42,10 @@ pub struct Cli {
     )]
     pub pdulen: usize,
 
-    #[arg(required = true, help = "Reveiver addresses to forward packets to")]
+    #[arg(
+        required = true,
+        help = "Reveiver addresses to forward packets to. IPv4 example: 127.0.0.1:5000, IPv6 example: [::1]:5000"
+    )]
     pub receiver: Vec<SocketAddr>,
 
     #[arg(
